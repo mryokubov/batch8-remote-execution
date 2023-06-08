@@ -1,0 +1,19 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: circleci/openjdk:11-jdk
+
+    working_directory: ~/my-app
+
+    steps:
+      - checkout
+
+      - run:
+          name: Set up Java
+          command: sudo update-alternatives --set java /usr/lib/jvm/java-11-openjdk-amd64/bin/java
+
+      - run:
+          name: Build and Test
+          command: mvn clean test
