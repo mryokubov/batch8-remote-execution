@@ -7,6 +7,9 @@ jobs:
 
     working_directory: ~/my-app
 
+    environment:
+      JVM_OPTS: -Duser.home=/tmp
+
     steps:
       - checkout
 
@@ -16,4 +19,4 @@ jobs:
 
       - run:
           name: Build and Test
-          command: mvn clean test
+          command: JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64 mvn clean test
