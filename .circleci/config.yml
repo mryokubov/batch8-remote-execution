@@ -15,14 +15,24 @@ jobs:
     # documented at https://circleci.com/docs/2.0/circleci-images/
     # - image: circleci/postgres:9.4
 
-    working_directory: ~/repo
-
+    working_directory: /tmp
     environment:
       # Customize the JVM maximum heap limit
       MAVEN_OPTS: -Xmx3200m
 
     steps:
       - checkout
+      - run:
+          name: Creating Dummy Artifacts
+          command: |
+            echo "my artifact file" > /tmp/art-1;
+            mkdir /tmp/artifacts;
+            echo "my artifact files in a dir" > /tmp/artifacts/art-2;
+            - store_artifacts:
+                path: /tmp/art-1
+                destination: artifact-file
+            - store_artifacts:
+                path: /tmp/artifacts
 
       # Download and cache dependencies
       - restore_cache:
