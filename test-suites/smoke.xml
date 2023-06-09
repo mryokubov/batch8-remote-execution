@@ -3,9 +3,8 @@
 <suite name="SMOKE TEST SUITE">
     <test name="SMOKE TESTS">
         <classes>
-            <class name="com.academy.techcenture.LoginTest"/>
-            <class name="com.academy.techcenture.RegisterTest"/>
-            <class name="com.academy.techcenture.PlaceOrderTest"/>
+            <class name="com.academy.techcenture.tests.LoginTest"/>
+            <class name="com.academy.techcenture.tests.WebOrderTest"/>
         </classes>
     </test>
 </suite>
