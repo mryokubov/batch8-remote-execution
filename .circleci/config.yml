@@ -42,3 +42,8 @@ jobs:
 
       # run tests!
       - run: mvn test
+      - store_artifacts:
+          path: test-output
+          destination: tr1
+      - store_test_results:
+          path: test-output
